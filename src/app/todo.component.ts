@@ -28,7 +28,14 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`The dialog was closed : ${result}`);
-      if (result != undefined){
+      if (result != null && result.description != null){
+        if (result.deadline == null){
+          console.log('If deadline is not selected set for tomorrow');
+          let tomorrow = new Date();
+          tomorrow.setDate(new Date().getDate() + 1 );
+          result.deadline = tomorrow;
+        }
+        console.log(`Inside condition ${result}`);
         result.id = this.todosLst.length + 1;
         this.todosLst.push(result);
       }
