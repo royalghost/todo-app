@@ -1,6 +1,6 @@
 <button mat-raised-button (click)="openDialog()">Add New</button>
 <mat-selection-list #todos>
   <mat-list-option *ngFor="let todo of todosLst" (click)="onSelect(todo)">
-    {{todo?.description}} [ {{todo?.deadline.toLocaleString()}}]
+  	{{todo?.description}} [ {{todo?.deadline?.toLocaleString()}}]
   </mat-list-option>
 </mat-selection-list>
